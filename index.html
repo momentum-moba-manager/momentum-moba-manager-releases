@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Momentum: MOBA Manager</title>
+  <meta name="description" content="Build and manage a professional esports team. Download the latest Windows build.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Palette mirrors the game's CyberZap tokens (theme/cyberzap/tokens). */
+    :root {
+      --bg-0: oklch(13% 0.020 265);
+      --bg-1: oklch(16% 0.026 268);
+      --surface-1: oklch(19% 0.036 282);
+      --surface-2: oklch(23% 0.042 285);
+      --border-1: oklch(28% 0.03 278);
+      --border-2: oklch(37% 0.035 278);
+      --text-primary: oklch(97% 0.004 270);
+      --text-secondary: oklch(75% 0.018 270);
+      --text-tertiary: oklch(56% 0.02 270);
+      --primary-400: oklch(77% 0.145 58);
+      --primary-500: oklch(68% 0.165 50);
+      --primary-600: oklch(59% 0.16 46);
+      --accent-400: oklch(74% 0.20 330);
+      --radius: 10px;
+      --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, oklch(30% 0.09 50 / 0.35), transparent 70%),
+        radial-gradient(900px 500px at 100% 40%, oklch(30% 0.12 330 / 0.18), transparent 70%),
+        var(--bg-0);
+      color: var(--text-primary);
+      font: 400 16px/1.6 var(--font-sans);
+      min-height: 100vh;
+    }
+
+    a { color: var(--primary-400); }
+    a:hover { color: var(--primary-500); }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span { color: var(--primary-400); }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border: 1px solid var(--accent-400);
+      border-radius: 999px;
+      color: var(--accent-400);
+      font: 500 12px/1.6 var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 72px 0 56px;
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .accent { color: var(--primary-400); }
+
+    .tagline {
+      max-width: 620px;
+      margin: 0 auto 40px;
+      color: var(--text-secondary);
+      font-size: 18px;
+    }
+
+    .download {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 36px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--primary-400), var(--primary-500));
+      color: oklch(18% 0.03 50);
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 40px -10px oklch(68% 0.165 50 / 0.7);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+
+    .download:hover {
+      color: oklch(18% 0.03 50);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 48px -10px oklch(68% 0.165 50 / 0.85);
+    }
+
+    .download:focus-visible {
+      outline: 2px solid var(--text-primary);
+      outline-offset: 3px;
+    }
+
+    .download svg { width: 24px; height: 24px; flex: none; }
+
+    .meta {
+      margin-top: 16px;
+      color: var(--text-tertiary);
+      font: 400 13px/1.6 var(--font-mono);
+    }
+
+    .meta a { color: var(--text-secondary); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .card {
+      background: var(--surface-1);
+      border: 1px solid var(--border-1);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin: 0 0 16px;
+    }
+
+    .install {
+      margin-bottom: 56px;
+    }
+
+    .install ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text-secondary);
+    }
+
+    .install li { margin-bottom: 8px; }
+    .install strong { color: var(--text-primary); }
+
+    .note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--primary-500);
+      background: var(--surface-1);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      background: var(--surface-2);
+      padding: 1px 6px;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-1);
+      padding: 32px 0 48px;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    footer p { margin: 0 0 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">Momentum<span>:</span> MOBA Manager</div>
+      <span class="pill">Private alpha</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Your team.<br><span class="accent">Your call.</span></h1>
+        <p class="tagline">
+          A management sim in the spirit of Football Manager, set in professional League of Legends.
+          Draft, set the strategy, manage the roster, and watch the match engine play it out.
+        </p>
+        <a class="download" href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases/latest/download/Momentum-MOBA-Manager-Setup-x64.exe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
+            <path d="M7 11l5 5l5 -5"></path>
+            <path d="M12 4l0 12"></path>
+          </svg>
+          Download for Windows
+        </a>
+        <div class="meta">
+          v0.0.1 · 2026-09-21 · Windows 10/11 x64 ·
+          <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a>
+        </div>
+      </section>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Real match simulation</h3>
+          <p>Laning, ganks, sieges, objectives and team fights on a simulated map, calibrated on real pro play.</p>
+        </div>
+        <div class="card">
+          <h3>Draft and tactics</h3>
+          <p>Ban/pick with Fearless Draft across Bo1, Bo3 and Bo5, plus six strategy dimensions per game.</p>
+        </div>
+        <div class="card">
+          <h3>A living world</h3>
+          <p>Every Tier 1 league plays its season around you. Athletes grow, peak, retire and get replaced.</p>
+        </div>
+        <div class="card">
+          <h3>The business side</h3>
+          <p>Contracts, free agency, wages, sponsors and prize money.</p>
+        </div>
+      </div>
+
+      <section class="install">
+        <h2>Install</h2>
+        <ol>
+          <li><strong>Download</strong> with the button above. It always gets the newest build.</li>
+          <li><strong>Run</strong> <code>Momentum-MOBA-Manager-Setup-x64.exe</code>. It installs for your user only and doesn't need administrator rights.</li>
+          <li><strong>That's it.</strong> The game tells you on startup when a newer build is out.</li>
+        </ol>
+        <div class="note">
+          <strong>"Windows protected your PC"?</strong> The installer isn't code-signed yet, so SmartScreen
+          doesn't recognize it. Click <strong>More info</strong>, then <strong>Run anyway</strong>.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        This is an early, private build shared with a few friends for feedback. Expect rough edges,
+        and saves from one version may not load in the next.
+      </p>
+      <p>
+        Momentum is a free, non-commercial, personal project. It isn't endorsed by Riot Games and doesn't
+        reflect the views or opinions of Riot Games or anyone officially involved in producing or managing
+        Riot Games properties. Riot Games and all associated properties are trademarks or registered
+        trademarks of Riot Games, Inc.
+      </p>
+      <p>
+        During this private alpha the game uses the real names of players, coaches, teams, leagues and
+        champions. They belong to their respective owners, and no affiliation or endorsement is implied.
+        Before any public release, every real name and trademarked reference will be replaced with
+        fictional ones. Rights holders who want something removed can
+        <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/issues">open an issue</a>.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
