@@ -166,6 +166,105 @@
       margin: 0 0 16px;
     }
 
+    .status {
+      margin-bottom: 56px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .status-col h2 {
+      font-size: 18px;
+      margin: 0 0 14px;
+    }
+
+    .status-col.can h2 { color: oklch(72% 0.16 150); }
+    .status-col.cant h2 { color: oklch(68% 0.19 25); }
+
+    .status-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .status-col li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .status-col .mark {
+      flex: none;
+      font-size: 13px;
+    }
+
+    .status-col.can .mark { color: oklch(72% 0.16 150); }
+    .status-col.cant .mark { color: oklch(68% 0.19 25); }
+
+    .changelog {
+      margin-bottom: 56px;
+    }
+
+    .changelog-scroll {
+      height: 420px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-right: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-2) transparent;
+    }
+
+    .changelog-scroll::-webkit-scrollbar { width: 8px; }
+    .changelog-scroll::-webkit-scrollbar-track { background: transparent; }
+    .changelog-scroll::-webkit-scrollbar-thumb {
+      background: var(--border-2);
+      border-radius: 999px;
+    }
+
+    .changelog-entry {
+      background: var(--surface-1);
+      border: 1px solid var(--border-1);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+
+    .changelog-entry h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .changelog-entry h3 time {
+      font: 400 12px/1.6 var(--font-mono);
+      color: var(--text-tertiary);
+    }
+
+    .changelog-entry ul {
+      margin: 0;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .changelog-entry li {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
     .install {
       margin-bottom: 56px;
     }
@@ -231,7 +330,7 @@
           Download for Windows
         </a>
         <div class="meta">
-          v0.0.1 · 2026-09-21 · Windows 10/11 x64 ·
+          v0.0.2 · 2026-09-23 · Windows 10/11 x64 ·
           <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a>
         </div>
       </section>
@@ -254,6 +353,69 @@
           <p>Contracts, free agency, wages, sponsors and prize money.</p>
         </div>
       </div>
+
+      <section class="status">
+        <div class="status-grid">
+          <div class="status-col can">
+            <h2>What you can do</h2>
+            <ul>
+              <li><span class="mark">✅</span> Full match simulation: laning, ganks, sieges, objectives and team fights on a live map</li>
+              <li><span class="mark">✅</span> Damage types and tank durability that shape every fight — stack too much of one damage type and pay for it, pick anti-tank to cut through a tough frontline</li>
+              <li><span class="mark">✅</span> Interactive draft with ban/pick and Fearless Draft across Bo1, Bo3 and Bo5</li>
+              <li><span class="mark">✅</span> Six-dimension team strategy (split push, siege, objective control, teamfight, pick, scaling)</li>
+              <li><span class="mark">✅</span> Champion meta that shifts over time, with patch notes and a tier list</li>
+              <li><span class="mark">✅</span> Match ratings with Player of the Game / Player of the Series and per-athlete career stats</li>
+              <li><span class="mark">✅</span> Athlete growth, decline, retirement and procedural generation of new pros</li>
+              <li><span class="mark">✅</span> Full competitive calendar: regular season, playoffs, MSI, Regional Finals and Worlds (Swiss Stage included)</li>
+              <li><span class="mark">✅</span> Club finances: income/expenses, sponsors and prize money</li>
+              <li><span class="mark">✅</span> Contract expiry, free agency, wage budget and transfer negotiations</li>
+              <li><span class="mark">✅</span> The full Tier 1 world: every major region, league, club, coach and athlete</li>
+            </ul>
+          </div>
+          <div class="status-col cant">
+            <h2>What you can't still do (in roadmap)</h2>
+            <ul>
+              <li><span class="mark">❌</span> Customize strategy ad-hoc for each individual athlete based on their role</li>
+              <li><span class="mark">❌</span> Player injuries and burnout</li>
+              <li><span class="mark">❌</span> Firing a coach or a coaching job market</li>
+              <li><span class="mark">❌</span> A scouting network to discover and sign new talent</li>
+              <li><span class="mark">❌</span> Club objectives, board pressure and season-by-season history</li>
+              <li><span class="mark">❌</span> Staff beyond the head coach: analysts, assistant coaches</li>
+              <li><span class="mark">❌</span> Personal relationships, locker-room dynamics and one-on-one talks with athletes</li>
+              <li><span class="mark">❌</span> Match rating affecting morale or growth, and split/season MVP rankings</li>
+              <li><span class="mark">❌</span> A presented match viewer beyond text commentary</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="changelog">
+        <h2>Changelog</h2>
+        <div class="changelog-scroll">
+<article class="changelog-entry">
+  <h3>v0.0.2 <time>2026-09-23</time></h3>
+  <ul>
+    <li>Damage types and tank durability now matter: a team that deals only one kind of damage struggles against a durable frontline, anti-tank champions shine against tanks, and the CPU drafts with this in mind.</li>
+    <li>Champions now show a colored ring for their damage type (physical, magic, or split for hybrid) wherever they appear: draft, champion pool, tier list, and the balance patch notes email.</li>
+    <li>Champion fit is fairer: an athlete's affinity with a champion now adds to its value instead of multiplying it.</li>
+    <li>Each career has a seed, so the same seed replays the same world.</li>
+    <li>Settings open as a modal and confirm when your changes are saved.</li>
+    <li>Finances moved from Home to the Society tab.</li>
+    <li>The Tactics screen always shows the blue side on the left and red on the right.</li>
+    <li>Fixed the inbox not being kept correctly between games, and the Back button can no longer take you out of a running career.</li>
+    <li>The game window now has a minimum size of 1280x720.</li>
+  </ul>
+</article>
+<article class="changelog-entry">
+  <h3>v0.0.1 <time>2026-09-21</time></h3>
+  <ul>
+    <li>The full career loop: create a coach, pick a club, play drafts and matches, run seasons with international events.</li>
+    <li>Free agency, contracts, sponsors and club finances.</li>
+    <li>The game now checks for a newer build on startup.</li>
+  </ul>
+</article>
+        </div>
+      </section>
 
       <section class="install">
         <h2>Install</h2>
