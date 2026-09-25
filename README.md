@@ -11,10 +11,10 @@
 <br>
 
 <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases/latest/download/Momentum-MOBA-Manager-Setup-x64.exe">
-  <img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-v0.0.2-f08c3a?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="48">
+  <img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-v0.0.3-f08c3a?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="48">
 </a>
 
-<sub>Version 0.0.2 · released 2026-09-23 · <a href="https://momentum-moba-manager.github.io/momentum-moba-manager-releases/">website</a> · <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a></sub>
+<sub>Version 0.0.3 · released 2026-09-25 · <a href="https://momentum-moba-manager.github.io/momentum-moba-manager-releases/">website</a> · <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a></sub>
 
 </div>
 
@@ -44,6 +44,15 @@ You don't have to check back for new versions: the game tells you on startup whe
 This is an early, private build shared with a few friends for feedback. Expect rough edges and missing features. Saves from one version may not load in the next.
 
 Found a bug or have an idea? Tell me directly. That's the whole point of this alpha.
+
+## Report a bug
+
+1. **Open the game folder.** In a career, click the gear icon, then the **Game folder** button.
+2. **Attach the log** from the `logs` folder: `game.log` is the current or last session. The game starts a new log every time it opens, so if you restarted after the bug, attach the newest `game_<date>.log` instead.
+3. **Attach your save** from the `saves` folder if the bug happened in a career, so it can be reproduced from the same point.
+4. **Say what you did** right before it happened, and what you expected instead.
+
+**The game doesn't start?** Paste `%APPDATA%\com.mmm.moba-manager` into the File Explorer address bar to reach the same folder.
 
 ## Disclaimer
 

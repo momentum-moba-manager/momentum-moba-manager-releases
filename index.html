@@ -265,18 +265,22 @@
       font-size: 14px;
     }
 
-    .install {
+    .install,
+    .report {
       margin-bottom: 56px;
     }
 
-    .install ol {
+    .install ol,
+    .report ol {
       margin: 0;
       padding-left: 20px;
       color: var(--text-secondary);
     }
 
-    .install li { margin-bottom: 8px; }
-    .install strong { color: var(--text-primary); }
+    .install li,
+    .report li { margin-bottom: 8px; }
+    .install strong,
+    .report strong { color: var(--text-primary); }
 
     .note {
       margin-top: 16px;
@@ -330,7 +334,7 @@
           Download for Windows
         </a>
         <div class="meta">
-          v0.0.2 · 2026-09-23 · Windows 10/11 x64 ·
+          v0.0.3 · 2026-09-25 · Windows 10/11 x64 ·
           <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a>
         </div>
       </section>
@@ -360,8 +364,10 @@
             <h2>What you can do</h2>
             <ul>
               <li><span class="mark">✅</span> Full match simulation: laning, ganks, sieges, objectives and team fights on a live map</li>
+              <li><span class="mark">✅</span> Watch matches live at 1x, 2x or 4x with a gold difference chart and end-of-game stats, and reopen any played match game by game</li>
               <li><span class="mark">✅</span> Damage types and tank durability that shape every fight — stack too much of one damage type and pay for it, pick anti-tank to cut through a tough frontline</li>
-              <li><span class="mark">✅</span> Interactive draft with ban/pick and Fearless Draft across Bo1, Bo3 and Bo5</li>
+              <li><span class="mark">✅</span> Interactive draft with ban/pick and Fearless Draft across Bo1, Bo3 and Bo5, against CPU teams that draft around their players' comfort picks, follow a game plan and answer your picks with counters, while your staff points out what your composition still needs</li>
+              <li><span class="mark">✅</span> Lane and jungle matchups that matter: a counter-pick wins trades, duels and ganks, and team comp styles beat one another rock-paper-scissors style</li>
               <li><span class="mark">✅</span> Six-dimension team strategy (split push, siege, objective control, teamfight, pick, scaling)</li>
               <li><span class="mark">✅</span> Champion meta that shifts over time, with patch notes and a tier list</li>
               <li><span class="mark">✅</span> Match ratings with Player of the Game / Player of the Series and per-athlete career stats</li>
@@ -370,6 +376,9 @@
               <li><span class="mark">✅</span> Club finances: income/expenses, sponsors and prize money</li>
               <li><span class="mark">✅</span> Contract expiry, free agency, wage budget and transfer negotiations</li>
               <li><span class="mark">✅</span> The full Tier 1 world: every major region, league, club, coach and athlete</li>
+              <li><span class="mark">✅</span> Play in English or Italian</li>
+              <li><span class="mark">✅</span> Staff notes during the draft that point out what your comp still needs, with one click to see the champions that answer it</li>
+              <li><span class="mark">✅</span> Play in English or Italian, switchable at any time from the game options</li>
             </ul>
           </div>
           <div class="status-col cant">
@@ -384,6 +393,7 @@
               <li><span class="mark">❌</span> Personal relationships, locker-room dynamics and one-on-one talks with athletes</li>
               <li><span class="mark">❌</span> Match rating affecting morale or growth, and split/season MVP rankings</li>
               <li><span class="mark">❌</span> A presented match viewer beyond text commentary</li>
+              <li><span class="mark">❌</span> Flex picks and a free pick order — each pick is still tied to a role, in fixed order from top laner to support</li>
             </ul>
           </div>
         </div>
@@ -392,6 +402,25 @@
       <section class="changelog">
         <h2>Changelog</h2>
         <div class="changelog-scroll">
+<article class="changelog-entry">
+  <h3>v0.0.3 <time>2026-09-25</time></h3>
+  <ul>
+    <li>The game is now available in Italian. It follows your system language on first launch and can be switched any time from the options.</li>
+    <li>A new Settings button on the main menu sets the language and the starting options for new careers; each career then keeps its own copy.</li>
+    <li>Watch live matches at a steady pace with pause, 1x, 2x, 4x and skip to the end, including the space bar to pause and resume.</li>
+    <li>A new match screen layout, with a live gold difference chart that marks drakes, Barons and inhibitors, and both teams' player stats in Team Review.</li>
+    <li>Click any played match's result to open its detail page: every game of the series with bans, picks, gold chart and player stats.</li>
+    <li>Your staff now reads the draft with you, pointing out what your composition still needs at every ban and pick. Click a note to filter the champions that fit it.</li>
+    <li>CPU teams draft around their own players' comfort picks, follow an engage, disengage, poke or pick plan, and counter-pick your locked-in champions. CPU series now use Fearless Draft too.</li>
+    <li>Composition styles, lane and jungle matchups and gank threat now matter in the match, not just in the draft.</li>
+    <li>Poke champions now count as poke picks in every role, and off-meta picks can become viable when a patch favours them.</li>
+    <li>Matches now last around half an hour like professional games. Dead players walk back from the fountain, and late drakes are fought five against five.</li>
+    <li>Laners finish with a more realistic creep score, and Volibear now deals magic damage.</li>
+    <li>Match commentary is more accurate, with proper aces, picks and game-ending calls, and times shown as minutes and seconds.</li>
+    <li>The game now keeps a log of each session. A Game folder button in the options opens your saves, settings and logs, and the website explains what to attach to a bug report.</li>
+    <li>Games saved with an earlier version keep loading after you update. Text sizes and spacing are more consistent across the game, and the version number on the main menu opens the website.</li>
+  </ul>
+</article>
 <article class="changelog-entry">
   <h3>v0.0.2 <time>2026-09-23</time></h3>
   <ul>
@@ -427,6 +456,20 @@
         <div class="note">
           <strong>"Windows protected your PC"?</strong> The installer isn't code-signed yet, so SmartScreen
           doesn't recognize it. Click <strong>More info</strong>, then <strong>Run anyway</strong>.
+        </div>
+      </section>
+
+      <section class="report">
+        <h2>Report a bug</h2>
+        <ol>
+          <li><strong>Open the game folder.</strong> In a career, click the gear icon, then the <strong>Game folder</strong> button.</li>
+          <li><strong>Attach the log</strong> from the <code>logs</code> folder: <code>game.log</code> is the current or last session. The game starts a new log every time it opens, so if you restarted after the bug, attach the newest <code>game_&lt;date&gt;.log</code> instead.</li>
+          <li><strong>Attach your save</strong> from the <code>saves</code> folder if the bug happened in a career, so it can be reproduced from the same point.</li>
+          <li><strong>Say what you did</strong> right before it happened, and what you expected instead.</li>
+        </ol>
+        <div class="note">
+          <strong>The game doesn't start?</strong> Paste <code>%APPDATA%\com.mmm.moba-manager</code> into the
+          File Explorer address bar to reach the same folder.
         </div>
       </section>
     </main>
