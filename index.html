@@ -266,21 +266,30 @@
     }
 
     .install,
-    .report {
+    .report,
+    .privacy {
       margin-bottom: 56px;
     }
 
+    .privacy p {
+      margin: 0 0 12px;
+      color: var(--text-secondary);
+    }
+
     .install ol,
-    .report ol {
+    .report ol,
+    .privacy ul {
       margin: 0;
       padding-left: 20px;
       color: var(--text-secondary);
     }
 
     .install li,
-    .report li { margin-bottom: 8px; }
+    .report li,
+    .privacy li { margin-bottom: 8px; }
     .install strong,
-    .report strong { color: var(--text-primary); }
+    .report strong,
+    .privacy strong { color: var(--text-primary); }
 
     .note {
       margin-top: 16px;
@@ -334,7 +343,7 @@
           Download for Windows
         </a>
         <div class="meta">
-          v0.0.3 · 2026-09-25 · Windows 10/11 x64 ·
+          v0.0.4 · 2026-09-29 · Windows 10/11 x64 ·
           <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a>
         </div>
       </section>
@@ -376,9 +385,9 @@
               <li><span class="mark">✅</span> Club finances: income/expenses, sponsors and prize money</li>
               <li><span class="mark">✅</span> Contract expiry, free agency, wage budget and transfer negotiations</li>
               <li><span class="mark">✅</span> The full Tier 1 world: every major region, league, club, coach and athlete</li>
-              <li><span class="mark">✅</span> Play in English or Italian</li>
               <li><span class="mark">✅</span> Staff notes during the draft that point out what your comp still needs, with one click to see the champions that answer it</li>
               <li><span class="mark">✅</span> Play in English or Italian, switchable at any time from the game options</li>
+              <li><span class="mark">✅</span> Automatic updates: the game asks at startup and installs the new version for you</li>
             </ul>
           </div>
           <div class="status-col cant">
@@ -402,6 +411,15 @@
       <section class="changelog">
         <h2>Changelog</h2>
         <div class="changelog-scroll">
+<article class="changelog-entry">
+  <h3>v0.0.4 <time>2026-09-29</time></h3>
+  <ul>
+    <li>The game now sends a few anonymous counts when it starts, so we know how many people install and play the alpha. Nothing about you or your careers is sent, and you can turn it off with Anonymous usage statistics in the settings.</li>
+    <li>Newly generated young players now remember how they looked the day they appeared, so you can compare their attributes with their debut on the athlete page from their very first season.</li>
+    <li>From this version on, the game updates itself: when a new version is out it asks at startup whether to install it now or later, then downloads it and reopens on the new version, with no need to download the installer from the site again.</li>
+    <li>Sponsor offers in your inbox are now laid out two per row, so you can compare them side by side.</li>
+  </ul>
+</article>
 <article class="changelog-entry">
   <h3>v0.0.3 <time>2026-09-25</time></h3>
   <ul>
@@ -451,7 +469,7 @@
         <ol>
           <li><strong>Download</strong> with the button above. It always gets the newest build.</li>
           <li><strong>Run</strong> <code>Momentum-MOBA-Manager-Setup-x64.exe</code>. It installs for your user only and doesn't need administrator rights.</li>
-          <li><strong>That's it.</strong> The game tells you on startup when a newer build is out.</li>
+          <li><strong>That's it.</strong> From v0.0.4 on, the game asks on startup to install each new version for you.</li>
         </ol>
         <div class="note">
           <strong>"Windows protected your PC"?</strong> The installer isn't code-signed yet, so SmartScreen
@@ -470,6 +488,23 @@
         <div class="note">
           <strong>The game doesn't start?</strong> Paste <code>%APPDATA%\com.mmm.moba-manager</code> into the
           File Explorer address bar to reach the same folder.
+        </div>
+      </section>
+
+      <section class="privacy">
+        <h2>Usage statistics</h2>
+        <p>
+          To know how many people install and actually play the alpha, the game sends a few anonymous
+          counts to <a href="https://aptabase.com">Aptabase</a>, a privacy-first analytics service. Only when it starts:
+        </p>
+        <ul>
+          <li><strong>What's sent:</strong> that the game was installed or started, the game version, your operating system and its version, your system language and the WebView version.</li>
+          <li><strong>What isn't:</strong> no name, account or ID that follows you, and nothing about your careers, saves or settings.</li>
+          <li><strong>What stays on your PC:</strong> <code>telemetry.json</code> in the game folder, which only remembers whether this install, week and month were already counted.</li>
+        </ul>
+        <div class="note">
+          <strong>Don't want to send them?</strong> Turn off <strong>Anonymous usage statistics</strong> in the
+          settings, from the Main Menu or the gear icon in a career. Nothing is sent from then on.
         </div>
       </section>
     </main>

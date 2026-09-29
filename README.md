@@ -11,10 +11,10 @@
 <br>
 
 <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases/latest/download/Momentum-MOBA-Manager-Setup-x64.exe">
-  <img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-v0.0.3-f08c3a?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="48">
+  <img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-v0.0.4-f08c3a?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="48">
 </a>
 
-<sub>Version 0.0.3 · released 2026-09-25 · <a href="https://momentum-moba-manager.github.io/momentum-moba-manager-releases/">website</a> · <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a></sub>
+<sub>Version 0.0.4 · released 2026-09-29 · <a href="https://momentum-moba-manager.github.io/momentum-moba-manager-releases/">website</a> · <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a></sub>
 
 </div>
 
@@ -53,6 +53,16 @@ Found a bug or have an idea? Tell me directly. That's the whole point of this al
 4. **Say what you did** right before it happened, and what you expected instead.
 
 **The game doesn't start?** Paste `%APPDATA%\com.mmm.moba-manager` into the File Explorer address bar to reach the same folder.
+
+## Usage statistics
+
+To know how many people install and actually play the alpha, the game sends a few anonymous counts to [Aptabase](https://aptabase.com), a privacy-first analytics service. Only when it starts:
+
+- **What's sent:** that the game was installed or started, the game version, your operating system and its version, your system language and the WebView version.
+- **What isn't:** no name, account or ID that follows you, and nothing about your careers, saves or settings.
+- **What stays on your PC:** `telemetry.json` in the game folder, which only remembers whether this install, week and month were already counted.
+
+**Don't want to send them?** Turn off **Anonymous usage statistics** in the settings, from the Main Menu or the gear icon in a career. Nothing is sent from then on.
 
 ## Disclaimer
 
