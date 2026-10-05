@@ -343,7 +343,7 @@
           Download for Windows
         </a>
         <div class="meta">
-          v0.0.4 · 2026-09-29 · Windows 10/11 x64 ·
+          v0.0.5 · 2026-10-05 · Windows 10/11 x64 ·
           <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a>
         </div>
       </section>
@@ -376,11 +376,12 @@
               <li><span class="mark">✅</span> Watch matches live at 1x, 2x or 4x with a gold difference chart and end-of-game stats, and reopen any played match game by game</li>
               <li><span class="mark">✅</span> Damage types and tank durability that shape every fight — stack too much of one damage type and pay for it, pick anti-tank to cut through a tough frontline</li>
               <li><span class="mark">✅</span> Interactive draft with ban/pick and Fearless Draft across Bo1, Bo3 and Bo5, against CPU teams that draft around their players' comfort picks, follow a game plan and answer your picks with counters, while your staff points out what your composition still needs</li>
-              <li><span class="mark">✅</span> Lane and jungle matchups that matter: a counter-pick wins trades, duels and ganks, and team comp styles beat one another rock-paper-scissors style</li>
+              <li><span class="mark">✅</span> Free pick order with flex picks: take champions in any role order, trade them between your players until the draft ends, and read the opponent's hidden roles from their champions, as they read yours</li>
+              <li><span class="mark">✅</span> Lane and jungle matchups that matter: a counter-pick wins trades, duels and ganks, and engage, disengage and poke comps beat one another rock-paper-scissors style over the whole match</li>
               <li><span class="mark">✅</span> Six-dimension team strategy (split push, siege, objective control, teamfight, pick, scaling)</li>
-              <li><span class="mark">✅</span> Champion meta that shifts over time, with patch notes and a tier list</li>
+              <li><span class="mark">✅</span> Champion meta that shifts over time, with whole classes of champions rising or falling together, and patch notes with a tier list, flex picks and every champion's grade per role</li>
               <li><span class="mark">✅</span> Match ratings with Player of the Game / Player of the Series and per-athlete career stats</li>
-              <li><span class="mark">✅</span> Athlete growth, decline, retirement and procedural generation of new pros</li>
+              <li><span class="mark">✅</span> Athlete growth, decline, retirement and procedural generation of new pros, with unsigned free agents eventually leaving the scene</li>
               <li><span class="mark">✅</span> Full competitive calendar: regular season, playoffs, MSI, Regional Finals and Worlds (Swiss Stage included)</li>
               <li><span class="mark">✅</span> Club finances: income/expenses, sponsors and prize money</li>
               <li><span class="mark">✅</span> Contract expiry, free agency, wage budget and transfer negotiations</li>
@@ -402,7 +403,6 @@
               <li><span class="mark">❌</span> Personal relationships, locker-room dynamics and one-on-one talks with athletes</li>
               <li><span class="mark">❌</span> Match rating affecting morale or growth, and split/season MVP rankings</li>
               <li><span class="mark">❌</span> A presented match viewer beyond text commentary</li>
-              <li><span class="mark">❌</span> Flex picks and a free pick order — each pick is still tied to a role, in fixed order from top laner to support</li>
             </ul>
           </div>
         </div>
@@ -412,53 +412,57 @@
         <h2>Changelog</h2>
         <div class="changelog-scroll">
 <article class="changelog-entry">
+  <h3>v0.0.5 <time>2026-10-05</time></h3>
+  <ul>
+    <li>Draft: pick in any order, swap champions between players, enemy roles stay hidden until the end.</li>
+    <li>Draft: more champions work in more roles, and the CPU picks smarter.</li>
+    <li>Draft: your staff now tells you which role is safer to pick last.</li>
+    <li>Matches: poke, engage and disengage teams each have their own way to win.</li>
+    <li>Matches: the red side no longer wins more often.</li>
+    <li>Patch Notes: a new page with the tier list, two-role champions and every champion's rating.</li>
+    <li>Players: free agents nobody signs eventually retire, and Scouting hides retired players.</li>
+  </ul>
+</article>
+<article class="changelog-entry">
   <h3>v0.0.4 <time>2026-09-29</time></h3>
   <ul>
-    <li>The game now sends a few anonymous counts when it starts, so we know how many people install and play the alpha. Nothing about you or your careers is sent, and you can turn it off with Anonymous usage statistics in the settings.</li>
-    <li>Newly generated young players now remember how they looked the day they appeared, so you can compare their attributes with their debut on the athlete page from their very first season.</li>
-    <li>From this version on, the game updates itself: when a new version is out it asks at startup whether to install it now or later, then downloads it and reopens on the new version, with no need to download the installer from the site again.</li>
-    <li>Sponsor offers in your inbox are now laid out two per row, so you can compare them side by side.</li>
+    <li>Game: updates now install themselves, the game asks at startup.</li>
+    <li>Game: sends a few anonymous usage counts, which you can turn off in the settings.</li>
+    <li>Players: young players' starting attributes are saved, so you can compare them from day one.</li>
+    <li>Interface: sponsor offers are shown side by side.</li>
   </ul>
 </article>
 <article class="changelog-entry">
   <h3>v0.0.3 <time>2026-09-25</time></h3>
   <ul>
-    <li>The game is now available in Italian. It follows your system language on first launch and can be switched any time from the options.</li>
-    <li>A new Settings button on the main menu sets the language and the starting options for new careers; each career then keeps its own copy.</li>
-    <li>Watch live matches at a steady pace with pause, 1x, 2x, 4x and skip to the end, including the space bar to pause and resume.</li>
-    <li>A new match screen layout, with a live gold difference chart that marks drakes, Barons and inhibitors, and both teams' player stats in Team Review.</li>
-    <li>Click any played match's result to open its detail page: every game of the series with bans, picks, gold chart and player stats.</li>
-    <li>Your staff now reads the draft with you, pointing out what your composition still needs at every ban and pick. Click a note to filter the champions that fit it.</li>
-    <li>CPU teams draft around their own players' comfort picks, follow an engage, disengage, poke or pick plan, and counter-pick your locked-in champions. CPU series now use Fearless Draft too.</li>
-    <li>Composition styles, lane and jungle matchups and gank threat now matter in the match, not just in the draft.</li>
-    <li>Poke champions now count as poke picks in every role, and off-meta picks can become viable when a patch favours them.</li>
-    <li>Matches now last around half an hour like professional games. Dead players walk back from the fountain, and late drakes are fought five against five.</li>
-    <li>Laners finish with a more realistic creep score, and Volibear now deals magic damage.</li>
-    <li>Match commentary is more accurate, with proper aces, picks and game-ending calls, and times shown as minutes and seconds.</li>
-    <li>The game now keeps a log of each session. A Game folder button in the options opens your saves, settings and logs, and the website explains what to attach to a bug report.</li>
-    <li>Games saved with an earlier version keep loading after you update. Text sizes and spacing are more consistent across the game, and the version number on the main menu opens the website.</li>
+    <li>Game: now in Italian too, changeable any time in the settings.</li>
+    <li>Game: a new Settings button on the main menu, and each career keeps its own options.</li>
+    <li>Matches: watch at 1x, 2x or 4x, pause with the space bar, or skip to the end.</li>
+    <li>Matches: a new match screen with a live gold chart and both teams' stats.</li>
+    <li>Matches: click any played match to see every game in detail.</li>
+    <li>Matches: games last about half an hour, like real pro games.</li>
+    <li>Draft: your staff helps you during the draft and shows the champions that fit.</li>
+    <li>Draft: CPU teams follow a game plan, play their favourite champions and counter yours.</li>
+    <li>Game: keeps a log to attach to bug reports, and old saves keep working after updates.</li>
   </ul>
 </article>
 <article class="changelog-entry">
   <h3>v0.0.2 <time>2026-09-23</time></h3>
   <ul>
-    <li>Damage types and tank durability now matter: a team that deals only one kind of damage struggles against a durable frontline, anti-tank champions shine against tanks, and the CPU drafts with this in mind.</li>
-    <li>Champions now show a colored ring for their damage type (physical, magic, or split for hybrid) wherever they appear: draft, champion pool, tier list, and the balance patch notes email.</li>
-    <li>Champion fit is fairer: an athlete's affinity with a champion now adds to its value instead of multiplying it.</li>
-    <li>Each career has a seed, so the same seed replays the same world.</li>
-    <li>Settings open as a modal and confirm when your changes are saved.</li>
-    <li>Finances moved from Home to the Society tab.</li>
-    <li>The Tactics screen always shows the blue side on the left and red on the right.</li>
-    <li>Fixed the inbox not being kept correctly between games, and the Back button can no longer take you out of a running career.</li>
-    <li>The game window now has a minimum size of 1280x720.</li>
+    <li>Matches: damage types and tanks now matter in every fight.</li>
+    <li>Draft: champions show a colored ring for their damage type.</li>
+    <li>Draft: how well a player fits a champion counts more fairly.</li>
+    <li>Career: each career has a seed, so the same seed gives the same world.</li>
+    <li>Finances: moved to the Society tab.</li>
+    <li>Interface: settings, the Tactics screen and the game window are tidier, and inbox bugs are fixed.</li>
   </ul>
 </article>
 <article class="changelog-entry">
   <h3>v0.0.1 <time>2026-09-21</time></h3>
   <ul>
-    <li>The full career loop: create a coach, pick a club, play drafts and matches, run seasons with international events.</li>
-    <li>Free agency, contracts, sponsors and club finances.</li>
-    <li>The game now checks for a newer build on startup.</li>
+    <li>Career: create a coach, pick a club, draft, play matches and go through whole seasons.</li>
+    <li>Market: free agents, contracts, sponsors and club finances.</li>
+    <li>Game: checks for a newer version at startup.</li>
   </ul>
 </article>
         </div>
