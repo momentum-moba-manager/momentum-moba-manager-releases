@@ -11,10 +11,10 @@
 <br>
 
 <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases/latest/download/Momentum-MOBA-Manager-Setup-x64.exe">
-  <img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-v0.0.5-f08c3a?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="48">
+  <img src="https://img.shields.io/badge/DOWNLOAD%20FOR%20WINDOWS-v0.0.6-f08c3a?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="48">
 </a>
 
-<sub>Version 0.0.5 · released 2026-10-05 · <a href="https://momentum-moba-manager.github.io/momentum-moba-manager-releases/">website</a> · <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a></sub>
+<sub>Version 0.0.6 · released 2026-10-11 · <a href="https://momentum-moba-manager.github.io/momentum-moba-manager-releases/">website</a> · <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a></sub>
 
 </div>
 
