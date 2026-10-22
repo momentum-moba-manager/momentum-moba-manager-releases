@@ -4,98 +4,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Momentum: MOBA Manager</title>
-  <meta name="description" content="Build and manage a professional esports team. Download the latest Windows build.">
+  <meta name="description" content="Manage a professional League of Legends team. Download the latest Windows build.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* Palette mirrors the game's CyberZap tokens (theme/cyberzap/tokens). */
+    /* Palette mirrors the game's Momentum tokens (theme/momentum/tokens.css):
+       warm charcoal, one action orange, sage cream for the text. */
     :root {
-      --bg-0: oklch(13% 0.020 265);
-      --bg-1: oklch(16% 0.026 268);
-      --surface-1: oklch(19% 0.036 282);
-      --surface-2: oklch(23% 0.042 285);
-      --border-1: oklch(28% 0.03 278);
-      --border-2: oklch(37% 0.035 278);
-      --text-primary: oklch(97% 0.004 270);
-      --text-secondary: oklch(75% 0.018 270);
-      --text-tertiary: oklch(56% 0.02 270);
-      --primary-400: oklch(77% 0.145 58);
-      --primary-500: oklch(68% 0.165 50);
-      --primary-600: oklch(59% 0.16 46);
-      --accent-400: oklch(74% 0.20 330);
-      --radius: 10px;
-      --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --surface-sunken: #161513;
+      --surface-page: #1E1D1A;
+      --surface-raised: #2A2824;
+      --surface-plate: #33312C;
+      --line: #3E3B36;
+      --line-strong: #56524B;
+      --text-primary: #EEF2E9;
+      --text-secondary: #B4BAAC;
+      --text-tertiary: #8E9387;
+      --action: #FF6A2B;
+      --action-top: #FF7C44;
+      --action-on: #161513;
+      --win: #4FB37E;
+      --side-blue: #5B8DEF;
+      --side-red: #E5534B;
+      --font-stage: "Archivo", "Arial Narrow", sans-serif;
+      --font-ui: "Inter", "Segoe UI", system-ui, sans-serif;
       --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background:
-        radial-gradient(1200px 600px at 50% -10%, oklch(30% 0.09 50 / 0.35), transparent 70%),
-        radial-gradient(900px 500px at 100% 40%, oklch(30% 0.12 330 / 0.18), transparent 70%),
-        var(--bg-0);
+      background: var(--surface-sunken);
       color: var(--text-primary);
-      font: 400 16px/1.6 var(--font-sans);
+      font: 400 16px/1.6 var(--font-ui);
+      font-feature-settings: "cv11";
       min-height: 100vh;
     }
 
-    a { color: var(--primary-400); }
-    a:hover { color: var(--primary-500); }
+    a { color: var(--action-top); }
+    a:hover { color: var(--text-primary); }
 
     .wrap {
-      max-width: 960px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 0 16px;
     }
 
-    header {
+    .label {
+      font: 500 12px/1.4 var(--font-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    /* ---------- Top bar ---------- */
+
+    .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 0;
       gap: 12px;
+      padding: 20px 0;
     }
 
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .brand span { color: var(--primary-400); }
-
-    .pill {
-      display: inline-block;
-      padding: 2px 10px;
-      border: 1px solid var(--accent-400);
-      border-radius: 999px;
-      color: var(--accent-400);
-      font: 500 12px/1.6 var(--font-mono);
-      letter-spacing: 0.06em;
+    .wordmark {
+      font: 800 20px/1 var(--font-stage);
+      font-stretch: 75%;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      white-space: nowrap;
     }
+
+    .wordmark span { color: var(--action); }
+
+    .top nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .top nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .top nav a:hover { color: var(--text-primary); }
+
+    /* ---------- Hero ---------- */
 
     .hero {
-      text-align: center;
-      padding: 72px 0 56px;
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      align-items: center;
+      gap: 40px;
+      padding: 56px 0 72px;
+    }
+
+    .stamp {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 4px 10px;
+      border: 1px solid var(--action);
+      color: var(--action-top);
+      font: 500 12px/1.4 var(--font-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .hero h1 {
-      margin: 0 0 16px;
-      font-size: clamp(36px, 7vw, 64px);
-      line-height: 1.05;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+      font: 800 clamp(48px, 9vw, 96px)/0.92 var(--font-stage);
+      font-stretch: 70%;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
     }
 
-    .hero h1 .accent { color: var(--primary-400); }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--action);
+    }
 
     .tagline {
-      max-width: 620px;
-      margin: 0 auto 40px;
+      max-width: 520px;
+      margin: 0 0 32px;
       color: var(--text-secondary);
       font-size: 18px;
     }
@@ -104,29 +139,27 @@
       display: inline-flex;
       align-items: center;
       gap: 14px;
-      padding: 18px 36px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--primary-400), var(--primary-500));
-      color: oklch(18% 0.03 50);
-      font-size: 20px;
-      font-weight: 700;
+      padding: 16px 32px 16px 28px;
+      background: linear-gradient(180deg, var(--action-top), var(--action));
+      color: var(--action-on);
+      font: 700 18px/1 var(--font-ui);
       text-decoration: none;
-      box-shadow: 0 10px 40px -10px oklch(68% 0.165 50 / 0.7);
-      transition: transform 120ms ease, box-shadow 120ms ease;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+      transition: filter 120ms ease, transform 120ms ease;
     }
 
     .download:hover {
-      color: oklch(18% 0.03 50);
-      transform: translateY(-2px);
-      box-shadow: 0 16px 48px -10px oklch(68% 0.165 50 / 0.85);
+      color: var(--action-on);
+      filter: brightness(1.08);
+      transform: translateY(-1px);
     }
 
     .download:focus-visible {
       outline: 2px solid var(--text-primary);
-      outline-offset: 3px;
+      outline-offset: 4px;
     }
 
-    .download svg { width: 24px; height: 24px; flex: none; }
+    .download svg { width: 22px; height: 22px; flex: none; }
 
     .meta {
       margin-top: 16px;
@@ -136,125 +169,155 @@
 
     .meta a { color: var(--text-secondary); }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px;
-      margin-bottom: 56px;
-    }
-
-    .card {
-      background: var(--surface-1);
-      border: 1px solid var(--border-1);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--text-secondary);
+    .smartscreen {
+      max-width: 520px;
+      margin-top: 20px;
+      padding-left: 14px;
+      border-left: 2px solid var(--line-strong);
+      color: var(--text-tertiary);
       font-size: 14px;
     }
 
+    .smartscreen strong { color: var(--text-secondary); font-weight: 600; }
+
+    /* The map: a plain three-lane board, drawn like the game's main menu. */
+    .map {
+      width: 100%;
+      max-width: 400px;
+      justify-self: end;
+      aspect-ratio: 1;
+      transform: perspective(900px) rotateX(28deg) rotateZ(-8deg);
+      filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.5));
+    }
+
+    /* ---------- Sections ---------- */
+
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
     section h2 {
-      font-size: 22px;
-      margin: 0 0 16px;
+      margin: 0;
+      font: 800 clamp(28px, 4vw, 40px)/1 var(--font-stage);
+      font-stretch: 75%;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
     }
 
-    .status {
-      margin-bottom: 56px;
+    /* What's in the game */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
     }
 
+    .feature {
+      background: var(--surface-page);
+      padding: 24px 22px 26px;
+    }
+
+    .feature .num {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--action);
+      font: 500 12px/1 var(--font-mono);
+      letter-spacing: 0.12em;
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font: 700 22px/1.1 var(--font-stage);
+      font-stretch: 80%;
+      text-transform: uppercase;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* Status lists (kept short; synced by /update-release-status) */
     .status-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
     }
 
-    .status-col h2 {
-      font-size: 18px;
+    .status-col h3 {
       margin: 0 0 14px;
     }
-
-    .status-col.can h2 { color: oklch(72% 0.16 150); }
-    .status-col.cant h2 { color: oklch(68% 0.19 25); }
 
     .status-col ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
     }
 
     .status-col li {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
+      position: relative;
+      padding: 10px 0 10px 22px;
+      border-bottom: 1px solid var(--line);
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    .status-col .mark {
-      flex: none;
-      font-size: 13px;
+    .status-col li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 19px;
+      width: 8px;
+      height: 8px;
     }
 
-    .status-col.can .mark { color: oklch(72% 0.16 150); }
-    .status-col.cant .mark { color: oklch(68% 0.19 25); }
+    .status-col.can li::before { background: var(--win); }
+    .status-col.cant li::before { border: 1px solid var(--text-tertiary); }
 
-    .changelog {
-      margin-bottom: 56px;
-    }
-
-    .changelog-scroll {
-      height: 420px;
-      overflow-y: auto;
+    /* Changelog */
+    .changelog-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      padding-right: 10px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border-2) transparent;
-    }
-
-    .changelog-scroll::-webkit-scrollbar { width: 8px; }
-    .changelog-scroll::-webkit-scrollbar-track { background: transparent; }
-    .changelog-scroll::-webkit-scrollbar-thumb {
-      background: var(--border-2);
-      border-radius: 999px;
     }
 
     .changelog-entry {
-      background: var(--surface-1);
-      border: 1px solid var(--border-1);
-      border-radius: var(--radius);
-      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
     }
 
+    .changelog-entry:first-child { padding-top: 0; }
+
     .changelog-entry h3 {
-      margin: 0 0 10px;
-      font-size: 15px;
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      flex-wrap: wrap;
+      margin: 0;
+      font: 700 26px/1 var(--font-stage);
+      font-stretch: 75%;
     }
 
     .changelog-entry h3 time {
-      font: 400 12px/1.6 var(--font-mono);
+      display: block;
+      margin-top: 8px;
       color: var(--text-tertiary);
+      font: 400 12px/1.4 var(--font-mono);
+      letter-spacing: 0.06em;
     }
+
+    .changelog-entry:first-child h3 { color: var(--action); }
 
     .changelog-entry ul {
       margin: 0;
-      padding-left: 20px;
+      padding-left: 18px;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -262,158 +325,255 @@
 
     .changelog-entry li {
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    .install,
-    .report,
-    .privacy {
-      margin-bottom: 56px;
+    .changelog-entry li::marker { color: var(--line-strong); }
+
+    /* Only the newest entry shows until the player asks for the rest. */
+    .changelog-list.collapsed .changelog-entry:nth-child(n+2) { display: none; }
+
+    .more {
+      margin-top: 20px;
+      padding: 10px 18px;
+      background: var(--surface-raised);
+      border: 1px solid var(--line-strong);
+      color: var(--text-primary);
+      font: 500 14px/1 var(--font-ui);
+      cursor: pointer;
     }
 
-    .privacy p {
-      margin: 0 0 12px;
+    .more:hover { background: var(--surface-plate); }
+    .more:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
+
+    /* Help */
+    .help {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+    }
+
+    .help details { border-bottom: 1px solid var(--line); }
+
+    .help summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+      cursor: pointer;
+      list-style: none;
+      font-weight: 600;
+      font-size: 17px;
+    }
+
+    .help summary::-webkit-details-marker { display: none; }
+
+    .help summary::after {
+      content: "+";
+      color: var(--action);
+      font: 500 22px/1 var(--font-mono);
+    }
+
+    .help details[open] summary::after { content: "−"; }
+
+    .help summary:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
+
+    .help .body {
+      padding: 0 0 22px;
+      max-width: 720px;
       color: var(--text-secondary);
+      font-size: 15px;
     }
 
-    .install ol,
-    .report ol,
-    .privacy ul {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--text-secondary);
-    }
-
-    .install li,
-    .report li,
-    .privacy li { margin-bottom: 8px; }
-    .install strong,
-    .report strong,
-    .privacy strong { color: var(--text-primary); }
-
-    .note {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-left: 3px solid var(--primary-500);
-      background: var(--surface-1);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
+    .help .body p { margin: 0 0 10px; }
+    .help .body ol, .help .body ul { margin: 0 0 10px; padding-left: 20px; }
+    .help .body li { margin-bottom: 6px; }
+    .help strong { color: var(--text-primary); font-weight: 600; }
 
     code {
       font-family: var(--font-mono);
-      font-size: 0.9em;
-      background: var(--surface-2);
+      font-size: 0.88em;
+      background: var(--surface-raised);
       padding: 1px 6px;
-      border-radius: 4px;
       overflow-wrap: anywhere;
     }
 
     footer {
-      border-top: 1px solid var(--border-1);
-      padding: 32px 0 48px;
+      padding: 40px 0 56px;
+      border-top: 1px solid var(--line);
       color: var(--text-tertiary);
       font-size: 13px;
     }
 
-    footer p { margin: 0 0 12px; }
+    footer p { margin: 0 0 12px; max-width: 760px; }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; padding: 32px 0 48px; }
+      .map { display: none; }
+      .top nav { display: none; }
+      .changelog-entry { grid-template-columns: 1fr; gap: 12px; }
+      .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .features { grid-template-columns: 1fr; }
+      .section-head .label { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .download { transition: none; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="brand">Momentum<span>:</span> MOBA Manager</div>
-      <span class="pill">Private alpha</span>
+    <header class="top">
+      <div class="wordmark">Momentum<span>:</span> MOBA Manager</div>
+      <nav>
+        <a href="#game">The game</a>
+        <a href="#changelog">What's new</a>
+        <a href="#help">Help</a>
+      </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <h1>Your team.<br><span class="accent">Your call.</span></h1>
-        <p class="tagline">
-          A management sim in the spirit of Football Manager, set in professional League of Legends.
-          Draft, set the strategy, manage the roster, and watch the match engine play it out.
-        </p>
-        <a class="download" href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases/latest/download/Momentum-MOBA-Manager-Setup-x64.exe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
-            <path d="M7 11l5 5l5 -5"></path>
-            <path d="M12 4l0 12"></path>
-          </svg>
-          Download for Windows
-        </a>
-        <div class="meta">
-          v0.0.7 · 2026-10-14 · Windows 10/11 x64 ·
-          <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">all releases</a>
+      <div class="hero">
+        <div>
+          <span class="stamp">Private alpha · v0.0.8</span>
+          <h1>Your team.<br><em>Your call.</em></h1>
+          <p class="tagline">
+            A management game set in professional League of Legends, in the spirit of Football Manager.
+            Build the roster, call the draft, set the strategy, and watch your team play it out.
+          </p>
+          <a class="download" href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases/latest/download/Momentum-MOBA-Manager-Setup-x64.exe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
+              <path d="M7 11l5 5l5 -5"></path>
+              <path d="M12 4l0 12"></path>
+            </svg>
+            Download for Windows
+          </a>
+          <div class="meta">
+            v0.0.8 · 2026-10-22 · Windows 10/11 ·
+            <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">older versions</a>
+          </div>
+          <p class="smartscreen">
+            <strong>"Windows protected your PC"?</strong> The installer isn't signed yet: click
+            <strong>More info</strong>, then <strong>Run anyway</strong>. After that, the game updates itself.
+          </p>
         </div>
-      </section>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Real match simulation</h3>
-          <p>Laning, ganks, sieges, objectives and team fights on a simulated map, calibrated on real pro play.</p>
-        </div>
-        <div class="card">
-          <h3>Draft and tactics</h3>
-          <p>Ban/pick with Fearless Draft across Bo1, Bo3 and Bo5, plus six strategy dimensions per game.</p>
-        </div>
-        <div class="card">
-          <h3>A living world</h3>
-          <p>Every Tier 1 league plays its season around you. Athletes grow, peak, retire and get replaced.</p>
-        </div>
-        <div class="card">
-          <h3>The business side</h3>
-          <p>Contracts, free agency, wages, sponsors and prize money.</p>
-        </div>
+        <svg class="map" viewBox="0 0 200 200" aria-hidden="true">
+          <rect x="4" y="4" width="192" height="192" fill="#22302A" stroke="#3E3B36" stroke-width="1.5"/>
+          <path d="M4 4 L196 196" stroke="#2D4A4F" stroke-width="16"/>
+          <g fill="none" stroke="#45514C" stroke-width="9" stroke-linecap="square">
+            <path d="M22 178 L22 22 L178 22"/>
+            <path d="M22 178 L178 178 L178 22"/>
+            <path d="M22 178 L178 22"/>
+          </g>
+          <g fill="none" stroke="#1A2420" stroke-width="1">
+            <path d="M22 178 L22 22 L178 22"/>
+            <path d="M22 178 L178 178 L178 22"/>
+          </g>
+          <circle cx="22" cy="178" r="11" fill="#5B8DEF"/>
+          <circle cx="178" cy="22" r="11" fill="#E5534B"/>
+          <circle cx="62" cy="138" r="4" fill="#FF6A2B"/>
+          <circle cx="100" cy="100" r="4" fill="#FF6A2B"/>
+          <circle cx="22" cy="92" r="4" fill="#5B8DEF"/>
+          <circle cx="132" cy="178" r="4" fill="#5B8DEF"/>
+          <circle cx="108" cy="22" r="4" fill="#E5534B"/>
+          <circle cx="178" cy="110" r="4" fill="#E5534B"/>
+        </svg>
       </div>
 
-      <section class="status">
+      <section id="game">
+        <div class="section-head">
+          <h2>The game</h2>
+          <span class="label">What you do as head coach</span>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <span class="num">01</span>
+            <h3>Draft</h3>
+            <p>Ban and pick against teams that draft around their players, with Fearless series and your staff's advice.</p>
+          </div>
+          <div class="feature">
+            <span class="num">02</span>
+            <h3>Watch it play out</h3>
+            <p>Every lane, gank, objective and teamfight is simulated, and you follow the match live.</p>
+          </div>
+          <div class="feature">
+            <span class="num">03</span>
+            <h3>Build the roster</h3>
+            <p>Sign free agents, negotiate contracts and watch young players grow while veterans fade.</p>
+          </div>
+          <div class="feature">
+            <span class="num">04</span>
+            <h3>Run the club</h3>
+            <p>Wages, sponsors and prize money: keep the accounts healthy or pay for it.</p>
+          </div>
+          <div class="feature">
+            <span class="num">05</span>
+            <h3>A living world</h3>
+            <p>Every major league plays its season around you, all the way to MSI and Worlds.</p>
+          </div>
+          <div class="feature">
+            <span class="num">06</span>
+            <h3>A shifting meta</h3>
+            <p>Patches move champions up and down the tier list, so last split's best picks may not work.</p>
+          </div>
+        </div>
+
         <div class="status-grid">
           <div class="status-col can">
-            <h2>What you can do</h2>
+            <h3 class="label">Already in the game</h3>
             <ul>
-              <li><span class="mark">✅</span> Full match simulation: laning, ganks, sieges, objectives and team fights on a live map, with a pro-level economy where leads snowball, bounties reward the team behind, late-game champions take over and every team and athlete can have a good or a bad day</li>
-              <li><span class="mark">✅</span> Athletes who make mistakes the enemy can punish, from junglers rushing an objective the team isn't ready for to laners ignoring the call, star playmakers on hard champions who can turn a lost duel, gank or objective fight around, and the rare quadra and pentakills of the late game</li>
-              <li><span class="mark">✅</span> Junglers who gank the bot lane first, follow the Lane Focus you set in Tactics and duel the enemy jungler over invades and Scuttle Crab</li>
-              <li><span class="mark">✅</span> A shotcaller on every team who reads the game and calls the plays, chosen by you in the starting lineup</li>
-              <li><span class="mark">✅</span> Watch matches live at 1x, 2x or 4x with a gold difference chart and end-of-game stats, and reopen any played match game by game</li>
-              <li><span class="mark">✅</span> Damage types and tank durability that shape every fight — stack too much of one damage type and pay for it, pick anti-tank to cut through a tough frontline</li>
-              <li><span class="mark">✅</span> Interactive draft with ban/pick and Fearless Draft across Bo1, Bo3 and Bo5, against CPU teams that draft around their players' comfort picks, follow a game plan and answer your picks with counters, while your staff points out what your composition still needs</li>
-              <li><span class="mark">✅</span> Free pick order with flex picks: take champions in any role order, trade them between your players until the draft ends, and read the opponent's hidden roles from their champions, as they read yours</li>
-              <li><span class="mark">✅</span> Lane and jungle matchups that matter: a counter-pick wins trades, duels and ganks, and engage, disengage and poke comps beat one another rock-paper-scissors style over the whole match</li>
-              <li><span class="mark">✅</span> Six-dimension team strategy (split push, siege, objective control, teamfight, pick, scaling)</li>
-              <li><span class="mark">✅</span> Champion meta that shifts over time, with whole classes of champions rising or falling together, and patch notes with a tier list, flex picks and every champion's grade per role</li>
-              <li><span class="mark">✅</span> Match ratings that reward every role's real job, the support's vision and peel included, with Player of the Game, Player of the Series, Player of the Tournament, a Season MVP for every league, rankings of athletes and teams for each split and season, and per-athlete career stats</li>
-              <li><span class="mark">✅</span> Athlete growth, decline, retirement and procedural generation of new pros, with unsigned free agents eventually leaving the scene</li>
-              <li><span class="mark">✅</span> Full competitive calendar: regular season, playoffs, MSI, Regional Finals and Worlds (Swiss Stage included)</li>
-              <li><span class="mark">✅</span> Club finances: income/expenses, sponsors and prize money</li>
-              <li><span class="mark">✅</span> Contract expiry, free agency, wage budget and transfer negotiations, plus ending a contract early for a fee, when money runs out or when a benched player asks to leave</li>
-              <li><span class="mark">✅</span> The full Tier 1 world: every major region, league, club, coach and athlete</li>
-              <li><span class="mark">✅</span> Staff notes during the draft that point out what your comp still needs, with one click to see the champions that answer it</li>
-              <li><span class="mark">✅</span> Play in English or Italian, switchable at any time from the game options</li>
-              <li><span class="mark">✅</span> Automatic updates: the game asks at startup and installs the new version for you</li>
+              <li>Every Tier 1 region, league, club and player, with a full season calendar up to Worlds</li>
+              <li>Interactive draft with Fearless series, counters, flex picks and staff notes</li>
+              <li>Live matches with commentary, a post-game review and ratings for every player</li>
+              <li>Contracts, free agency, early terminations, sponsors and club finances</li>
+              <li>Players who grow, retire and are replaced by new talent</li>
+              <li>Play in English or Italian, with automatic updates</li>
             </ul>
           </div>
           <div class="status-col cant">
-            <h2>What you can't still do (in roadmap)</h2>
+            <h3 class="label">Not in the game yet</h3>
             <ul>
-              <li><span class="mark">❌</span> Customize strategy ad-hoc for each individual athlete based on their role</li>
-              <li><span class="mark">❌</span> Player injuries and burnout</li>
-              <li><span class="mark">❌</span> Firing a coach or a coaching job market</li>
-              <li><span class="mark">❌</span> A scouting network to discover and sign new talent</li>
-              <li><span class="mark">❌</span> Club objectives, board pressure and season-by-season history</li>
-              <li><span class="mark">❌</span> Staff beyond the head coach: analysts, assistant coaches</li>
-              <li><span class="mark">❌</span> Personal relationships, locker-room dynamics and one-on-one talks with athletes</li>
-              <li><span class="mark">❌</span> Match rating affecting morale or growth</li>
-              <li><span class="mark">❌</span> A presented match viewer beyond text commentary</li>
+              <li>Injuries and burnout</li>
+              <li>Getting fired and looking for a new coaching job</li>
+              <li>Club objectives and pressure from the board</li>
+              <li>Assistant coaches, analysts and scouts</li>
+              <li>Morale, locker-room dynamics and one-on-one talks with players</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="changelog">
-        <h2>Changelog</h2>
-        <div class="changelog-scroll">
+      <section id="changelog">
+        <div class="section-head">
+          <h2>What's new</h2>
+          <span class="label">Changelog</span>
+        </div>
+        <div class="changelog-list" id="changelog-list">
+<article class="changelog-entry">
+  <h3>v0.0.8 <time>2026-10-22</time></h3>
+  <ul>
+    <li>Interface: the whole game has a brand new look, every screen and window redone.</li>
+    <li>Main menu: an animated map behind the menus, and one click to resume your career.</li>
+    <li>Draft: each champion shows its value for your player, and Fearless shows who already used it.</li>
+    <li>Matches: big moments like pentakills on screen, respawn timers, and a clear win or loss at the end.</li>
+    <li>Matches: a new post-game review with a Player of the Game card.</li>
+    <li>Players: a new player page with a player card, champion pool and side-by-side comparison.</li>
+    <li>Roster: every player has an overall rating, with staff notes and the next opponent role by role.</li>
+    <li>Inbox: match news like a sports page, letters from players and club accounts, with replies on top.</li>
+    <li>Scouting: the Solo Queue is now a real ranked ladder, with unknown players next to the pros.</li>
+    <li>Finances: laid out like the club's monthly accounts, with renewals right from the wages list.</li>
+    <li>Match day: other teams' results now arrive one by one as the day is played.</li>
+  </ul>
+</article>
 <article class="changelog-entry">
   <h3>v0.0.7 <time>2026-10-14</time></h3>
   <ul>
@@ -499,72 +659,86 @@
   </ul>
 </article>
         </div>
+        <button class="more" id="changelog-more" type="button" hidden>Show older versions</button>
       </section>
 
-      <section class="install">
-        <h2>Install</h2>
-        <ol>
-          <li><strong>Download</strong> with the button above. It always gets the newest build.</li>
-          <li><strong>Run</strong> <code>Momentum-MOBA-Manager-Setup-x64.exe</code>. It installs for your user only and doesn't need administrator rights.</li>
-          <li><strong>That's it.</strong> From v0.0.4 on, the game asks on startup to install each new version for you.</li>
-        </ol>
-        <div class="note">
-          <strong>"Windows protected your PC"?</strong> The installer isn't code-signed yet, so SmartScreen
-          doesn't recognize it. Click <strong>More info</strong>, then <strong>Run anyway</strong>.
+      <section id="help">
+        <div class="section-head">
+          <h2>Help</h2>
         </div>
-      </section>
-
-      <section class="report">
-        <h2>Report a bug</h2>
-        <ol>
-          <li><strong>Open the game folder.</strong> In a career, click the gear icon, then the <strong>Game folder</strong> button.</li>
-          <li><strong>Attach the log</strong> from the <code>logs</code> folder: <code>game.log</code> is the current or last session. The game starts a new log every time it opens, so if you restarted after the bug, attach the newest <code>game_&lt;date&gt;.log</code> instead.</li>
-          <li><strong>Attach your save</strong> from the <code>saves</code> folder if the bug happened in a career, so it can be reproduced from the same point.</li>
-          <li><strong>Say what you did</strong> right before it happened, and what you expected instead.</li>
-        </ol>
-        <div class="note">
-          <strong>The game doesn't start?</strong> Paste <code>%APPDATA%\com.mmm.moba-manager</code> into the
-          File Explorer address bar to reach the same folder.
-        </div>
-      </section>
-
-      <section class="privacy">
-        <h2>Usage statistics</h2>
-        <p>
-          To know how many people install and actually play the alpha, the game sends a few anonymous
-          counts to <a href="https://aptabase.com">Aptabase</a>, a privacy-first analytics service. Only when it starts:
-        </p>
-        <ul>
-          <li><strong>What's sent:</strong> that the game was installed or started, the game version, your operating system and its version, your system language and the WebView version.</li>
-          <li><strong>What isn't:</strong> no name, account or ID that follows you, and nothing about your careers, saves or settings.</li>
-          <li><strong>What stays on your PC:</strong> <code>telemetry.json</code> in the game folder, which only remembers whether this install, week and month were already counted.</li>
-        </ul>
-        <div class="note">
-          <strong>Don't want to send them?</strong> Turn off <strong>Anonymous usage statistics</strong> in the
-          settings, from the Main Menu or the gear icon in a career. Nothing is sent from then on.
+        <div class="help">
+          <details>
+            <summary>Installing and updating</summary>
+            <div class="body">
+              <ol>
+                <li><strong>Download</strong> with the button above: it always gets the newest version.</li>
+                <li><strong>Run</strong> <code>Momentum-MOBA-Manager-Setup-x64.exe</code>. It installs for your user only, no administrator rights needed.</li>
+                <li><strong>That's it.</strong> When a new version comes out, the game offers to install it at startup.</li>
+              </ol>
+              <p>This is an early build: saves from one version may not load in the next.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Reporting a bug</summary>
+            <div class="body">
+              <ol>
+                <li><strong>Open the game folder:</strong> in a career, click the gear icon, then <strong>Game folder</strong>.</li>
+                <li><strong>Attach the log</strong> from the <code>logs</code> folder: <code>game.log</code> is the last session. If you restarted the game after the bug, attach the newest <code>game_&lt;date&gt;.log</code> instead.</li>
+                <li><strong>Attach your save</strong> from the <code>saves</code> folder, so the bug can be replayed from the same point.</li>
+                <li><strong>Tell what you did</strong> right before it happened, and what you expected.</li>
+              </ol>
+              <p>If the game doesn't start, paste <code>%APPDATA%\com.mmm.moba-manager</code> into the File Explorer address bar to reach the same folder.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Anonymous usage statistics</summary>
+            <div class="body">
+              <p>
+                When it starts, the game sends <a href="https://aptabase.com">Aptabase</a> a few anonymous counts,
+                to know how many people install and play the alpha.
+              </p>
+              <ul>
+                <li><strong>Sent:</strong> that the game was installed or started, its version, your operating system, your system language and the WebView version.</li>
+                <li><strong>Never sent:</strong> your name, an account or an ID that follows you, or anything about your careers, saves and settings.</li>
+                <li><strong>Kept on your PC:</strong> <code>telemetry.json</code> in the game folder, which only remembers what was already counted.</li>
+              </ul>
+              <p>To stop it, turn off <strong>Anonymous usage statistics</strong> in the settings.</p>
+            </div>
+          </details>
         </div>
       </section>
     </main>
 
     <footer>
       <p>
-        This is an early, private build shared with a few friends for feedback. Expect rough edges,
-        and saves from one version may not load in the next.
+        Momentum is a free, non-commercial, personal project, shared with a few friends for feedback.
+        It isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone
+        officially involved in producing or managing Riot Games properties. Riot Games and all associated
+        properties are trademarks or registered trademarks of Riot Games, Inc.
       </p>
       <p>
-        Momentum is a free, non-commercial, personal project. It isn't endorsed by Riot Games and doesn't
-        reflect the views or opinions of Riot Games or anyone officially involved in producing or managing
-        Riot Games properties. Riot Games and all associated properties are trademarks or registered
-        trademarks of Riot Games, Inc.
-      </p>
-      <p>
-        During this private alpha the game uses the real names of players, coaches, teams, leagues and
+        During the private alpha the game uses the real names of players, coaches, teams, leagues and
         champions. They belong to their respective owners, and no affiliation or endorsement is implied.
-        Before any public release, every real name and trademarked reference will be replaced with
-        fictional ones. Rights holders who want something removed can
+        Before any public release they will be replaced with fictional ones. Rights holders who want
+        something removed can
         <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/issues">open an issue</a>.
       </p>
     </footer>
   </div>
+
+  <script>
+    // Collapse the changelog to its newest entry; without JavaScript every entry stays visible.
+    (function () {
+      var list = document.getElementById("changelog-list");
+      var more = document.getElementById("changelog-more");
+      if (!list || !more || list.querySelectorAll(".changelog-entry").length < 2) return;
+      list.classList.add("collapsed");
+      more.hidden = false;
+      more.addEventListener("click", function () {
+        var collapsed = list.classList.toggle("collapsed");
+        more.textContent = collapsed ? "Show older versions" : "Show only the latest";
+      });
+    })();
+  </script>
 </body>
 </html>
