@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Momentum: MOBA Manager</title>
+  <link rel="icon" type="image/png" href="logo.png">
   <meta name="description" content="Manage a professional League of Legends team. Download the latest Windows build.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,13 +73,22 @@
     }
 
     .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font: 800 20px/1 var(--font-stage);
       font-stretch: 75%;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
-    .wordmark span { color: var(--action); }
+    .wordmark span span { color: var(--action); }
+
+    .wordmark img {
+      width: 40px;
+      height: 40px;
+      flex: none;
+    }
 
     .top nav {
       display: flex;
@@ -430,7 +440,7 @@
 <body>
   <div class="wrap">
     <header class="top">
-      <div class="wordmark">Momentum<span>:</span> MOBA Manager</div>
+      <div class="wordmark"><img src="logo.png" alt=""><span>Momentum<span>:</span> MOBA Manager</span></div>
       <nav>
         <a href="#game">The game</a>
         <a href="#changelog">What's new</a>
@@ -441,7 +451,7 @@
     <main>
       <div class="hero">
         <div>
-          <span class="stamp">Private alpha · v0.0.8</span>
+          <span class="stamp">Private alpha · v0.0.9</span>
           <h1>Your team.<br><em>Your call.</em></h1>
           <p class="tagline">
             A management game set in professional League of Legends, in the spirit of Football Manager.
@@ -456,7 +466,7 @@
             Download for Windows
           </a>
           <div class="meta">
-            v0.0.8 · 2026-10-22 · Windows 10/11 ·
+            v0.0.9 · 2026-10-27 · Windows 10/11 ·
             <a href="https://github.com/momentum-moba-manager/momentum-moba-manager-releases/releases">older versions</a>
           </div>
           <p class="smartscreen">
@@ -531,9 +541,9 @@
           <div class="status-col can">
             <h3 class="label">Already in the game</h3>
             <ul>
-              <li>Every Tier 1 region, league, club and player, with a full season calendar up to Worlds</li>
+              <li>Every Tier 1 region, league, club and player, playing the real 2026 year from each league's three stages to First Stand, MSI and Worlds, plus the Esports World Cup, the smaller cups and a weekly newspaper</li>
               <li>Interactive draft with Fearless series, counters, flex picks and staff notes</li>
-              <li>Live matches with commentary, a post-game review and ratings for every player</li>
+              <li>Live matches with commentary, players who tire in long series, and a post-game review that explains every rating</li>
               <li>Contracts, free agency, early terminations, sponsors and club finances</li>
               <li>Players who grow, retire and are replaced by new talent</li>
               <li>Play in English or Italian, with automatic updates</li>
@@ -558,6 +568,30 @@
           <span class="label">Changelog</span>
         </div>
         <div class="changelog-list" id="changelog-list">
+<article class="changelog-entry">
+  <h3>v0.0.9 <time>2026-10-27</time></h3>
+  <ul>
+    <li>Career: every league plays its real 2026 year, three stages on the real dates, formats and playoffs.</li>
+    <li>Career: the First Stand arrives in March, and MSI and Worlds play their real 2026 formats.</li>
+    <li>Career: smaller trophies all year: Americas Cup, Esports World Cup and its qualifiers, KeSPA Cup and Demacia Cup.</li>
+    <li>Career: the LEC Versus and CBLOL Cup are single games, and you may play two in one day.</li>
+    <li>Career: no team plays two series on the same day anymore.</li>
+    <li>Career: pick your first team from cards showing each club's logo and strength.</li>
+    <li>Career: every Monday the Momentum News newspaper brings the week's stories to your mail.</li>
+    <li>Draft: champion tooltips show which counters are gone, and a big timer shows whose turn it is.</li>
+    <li>Matches: players tire game after game in a long series, and their rating ring shows it.</li>
+    <li>Matches: after each game the staff explains every player's rating.</li>
+    <li>Matches: multikill banners and the Victory or Defeat screen show up again in the installed game.</li>
+    <li>Players: young real players can still grow, and each new career makes some a little more talented.</li>
+    <li>Players: the Season MVP rewards the best of the spring and summer regular seasons.</li>
+    <li>Players: scouting no longer shows prospects from your previous career.</li>
+    <li>Finances: prize money is shared across the year's stages, and prize and sponsor screens explain each bonus.</li>
+    <li>Interface: coach creation, tactics and the transfer tab match the new look, and the game has a new icon.</li>
+    <li>Interface: play from the keyboard: Space continues, Escape opens the settings, Ctrl+S saves.</li>
+    <li>Interface: choose between a window and full screen in the settings.</li>
+    <li>Interface: coming back to the inbox finds the email you were reading, and newspaper charts no longer cover their numbers.</li>
+  </ul>
+</article>
 <article class="changelog-entry">
   <h3>v0.0.8 <time>2026-10-22</time></h3>
   <ul>
